@@ -32,7 +32,12 @@ p {
   position: relative;
 }
 
-.combo-box-container, .charts-container {
+.combo-box-container {
+  margin: $app-spacing-default;
+  max-width: 1080px;
+}
+
+.charts-container {
   margin: $app-spacing-default;
 }
 

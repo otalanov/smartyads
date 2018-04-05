@@ -1,7 +1,7 @@
 <div class="combo-box-container">
   <div class="combo-box">
     <mat-form-field style="width:38%">
-      <mat-select placeholder="Choose data to display" [compareWith]="shouldPreSelect" (selectionChange)="foo($event)" #selection multiple>
+      <mat-select placeholder="Choose data to display" [compareWith]="shouldPreSelect" #selection multiple>
         <mat-option *ngFor="let dataChart of dataCharts" [value]="dataChart">
           {{ dataChart.uiName }}
         </mat-option>

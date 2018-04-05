@@ -1,0 +1,20 @@
+<div class="combo-box-container">
+  <div class="combo-box">
+    <mat-form-field style="width:38%">
+      <mat-select placeholder="Choose data to display" [compareWith]="shouldPreSelect" (selectionChange)="foo($event)" #selection multiple>
+        <mat-option *ngFor="let dataChart of dataCharts" [value]="dataChart">
+          {{ dataChart.uiName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button class="btn-primary" (click)="updateDashboard(selection.value)">Go!</button>
+  </div>
+</div>
+<div class="charts-container">
+  <chart-auction      *ngIf="shouldDisplayChart('AUCTIONS')"></chart-auction>
+  <chart-demographics *ngIf="shouldDisplayChart('DEMOGRAPHICS')"></chart-demographics>
+  <chart-devices      *ngIf="shouldDisplayChart('DEVICES')"></chart-devices>
+  <!--       NOT IMPLEMENTED       -->
+  <!--<chart-countries *ngIf="shouldDisplayChart('COUNTRIES')"></chart-countries>-->
+  <!--<chart-new-users *ngIf="shouldDisplayChart('NEW_USERS')"></chart-new-users>-->
+</div>

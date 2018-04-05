@@ -1,0 +1,22 @@
+<h1>Devices</h1>
+<div class="doughnut-container">
+  <div class="block-relative">
+    <canvas baseChart width="620" height="380"
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType"
+            [options]="doughnutChartOptions"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+    <div class="overall-text-container">
+      <p class="text-primary">{{ overallDevices }}</p>
+      <p class="text-secondary">Total Users</p>
+    </div>
+  </div>
+  <!--<ul class="doughnut-data">-->
+    <!--<li class="doughnut-item" *ngFor="let label of doughnutChartLabels; let i = index">-->
+      <!--<p>{{ doughnutChartData[i] }}</p>-->
+      <!--<p>{{ label }}</p>-->
+    <!--</li>-->
+  <!--</ul>-->
+</div>

@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import './assets/style/app-variables';
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+p {
+  margin: 0;
+}
+
+.head-logo {
+  line-height: 36px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.btn-primary {
+  background-color: #01bcd5;
+  color: #fff !important;
+  text-transform: uppercase;
+}
+
+.block-relative {
+  position: relative;
+}
+
+.combo-box-container, .charts-container {
+  margin: $app-spacing-default;
+}
+
+.overall-text-container {
+  position: absolute;
+  top: calc(50% - 20px);
+  left: 270px;
+  line-height: 1;
+}
+
+.text-primary {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.text-secondary {
+  color: rgba(0,0,0,.54)
+}
+

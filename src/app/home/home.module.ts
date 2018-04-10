@@ -9,13 +9,15 @@ import {ChartDemographicsComponent} from "../charts/chart-demographics/chart-dem
 import {ChartDevicesComponent} from "../charts/chart-devices/chart-devices.component";
 import {ChartNewUsersComponent} from "../charts/chart-new-users/chart-new-users.component";
 import {ChartsModule} from "ng2-charts/index";
+import {NgGridModule} from "angular2-grid/main";
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     CustomMaterialModule,
-    ChartsModule
+    ChartsModule,
+    NgGridModule
   ],
   declarations: [
     HomeComponent,

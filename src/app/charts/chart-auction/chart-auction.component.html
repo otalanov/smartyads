@@ -1,12 +1,16 @@
-<h1>Auction</h1>
-<div>
-<canvas baseChart width="620" height="380"
+<div class="chart-header">
+  <h5>Auction</h5>
+  <button class="chart-header-btn" [matMenuTriggerFor]="menu">
+    <i class="material-icons">more_horiz</i>
+    <mat-menu #menu="matMenu">
+      <button (click)="emitRemoveChart()" mat-menu-item>Remove</button>
+    </mat-menu>
+  </button>
+</div>
+<canvas baseChart
         [datasets]="lineChartData"
         [labels]="lineChartLabels"
         [options]="lineChartOptions"
         [colors]="lineChartColors"
         [legend]="lineChartLegend"
-        [chartType]="lineChartType"
-        (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)"></canvas>
-</div>
+        [chartType]="lineChartType"></canvas>

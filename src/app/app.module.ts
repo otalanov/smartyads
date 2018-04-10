@@ -16,6 +16,7 @@ import { CustomMaterialModule } from './custom-material/index';
 
 import { routes } from './app.routes';
 import {ChartsModule} from "ng2-charts";
+import {NgGridModule} from "angular2-grid/main";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {ChartsModule} from "ng2-charts";
     CustomMaterialModule,
     SharedModule,
     ChartsModule,
-    HomeModule
+    HomeModule,
+    NgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent],

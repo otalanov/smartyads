@@ -1,13 +1,15 @@
-<h1>Demographics</h1>
-<div>
-  <div style="display: block">
-    <canvas baseChart width="620" height="380"
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [legend]="barChartLegend"
-            [chartType]="barChartType"
-            (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)"></canvas>
-  </div>
+<div class="chart-header">
+  <h5>Demographics</h5>
+  <button class="chart-header-btn" [matMenuTriggerFor]="menu">
+    <i class="material-icons">more_horiz</i>
+    <mat-menu #menu="matMenu">
+      <button (click)="emitRemoveChart()" mat-menu-item>Remove</button>
+    </mat-menu>
+  </button>
 </div>
+<canvas baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"></canvas>

@@ -10,11 +10,21 @@
     <button mat-button class="btn-primary" (click)="updateDashboard(selection.value)">Go!</button>
   </div>
 </div>
-<div class="charts-container">
-  <chart-auction      *ngIf="shouldDisplayChart('AUCTIONS')"></chart-auction>
-  <chart-demographics *ngIf="shouldDisplayChart('DEMOGRAPHICS')"></chart-demographics>
-  <chart-devices      *ngIf="shouldDisplayChart('DEVICES')"></chart-devices>
+<div class="charts-outer-container" [ngGrid]="{limit_to_screen: true, fix_to_grid: true, auto_resize: false}">
+  <chart-auction      [ngGridItem]="{minWidth: 350}"
+                      (chartRemoved)="removeChart('AUCTIONS')"
+                      *ngIf="shouldDisplayChart('AUCTIONS')">
+  </chart-auction>
+  <chart-demographics [ngGridItem]="{minWidth: 350}"
+                      (chartRemoved)="removeChart('DEMOGRAPHICS')"
+                      *ngIf="shouldDisplayChart('DEMOGRAPHICS')">
+  </chart-demographics>
+  <chart-devices      [ngGridItem]="{minWidth: 350}"
+                      (chartRemoved)="removeChart('DEVICES')"
+                      *ngIf="shouldDisplayChart('DEVICES')">
+  </chart-devices>
   <!--       NOT IMPLEMENTED       -->
   <!--<chart-countries *ngIf="shouldDisplayChart('COUNTRIES')"></chart-countries>-->
   <!--<chart-new-users *ngIf="shouldDisplayChart('NEW_USERS')"></chart-new-users>-->
 </div>
+

@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Output, EventEmitter} from "@angular/core";
 import * as auctionData from "./../../shared/data/auctions.json"
 import {LineChartItem} from "../../shared/models/line-chart-item.model";
 import {AuctionData} from "../../shared/models/auction-data.model";
@@ -10,11 +10,14 @@ import {AuctionData} from "../../shared/models/auction-data.model";
 
 export class ChartAuctionComponent implements OnInit {
 
+  @Output() chartRemoved: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   auctionData: AuctionData;
   lineChartData: LineChartItem[] = [];
   lineChartLabels: string[];
   lineChartOptions: any = {
-    responsive: false
+    responsive: true,
+    maintainAspectRatio: false
   };
   lineChartColors: any[] = [
     { // grey
@@ -62,15 +65,9 @@ export class ChartAuctionComponent implements OnInit {
      }.bind(this));
    }
 
-  // events
-  chartClicked(e: any): void {
-    console.log(e);
+  emitRemoveChart(): void {
+    this.chartRemoved.emit(true);
   }
-
-  chartHovered(e: any): void {
-    console.log(e);
-  }
-
 }
 
 

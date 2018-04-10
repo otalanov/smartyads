@@ -10,6 +10,8 @@
 body {
   margin: 0px;
   padding: 0px;
+  height: 100%;
+  overflow: hidden;
 }
 
 p {
@@ -37,15 +39,17 @@ p {
   max-width: 1080px;
 }
 
-.charts-container {
+.charts-outer-container {
   margin: $app-spacing-default;
+  width: auto !important;
 }
 
 .overall-text-container {
   position: absolute;
-  top: calc(50% - 20px);
-  left: 270px;
   line-height: 1;
+  top: calc(50% - 0px);
+  left: calc(50% - 41px);
+  display: none;
 }
 
 .text-primary {
@@ -55,5 +59,41 @@ p {
 
 .text-secondary {
   color: rgba(0,0,0,.54)
+}
+
+.charts-outer-container > * {
+  position: relative;
+  box-sizing: border-box;
+  border: $app-spacing-default solid transparent;
+  border-bottom-width: ($app-spacing-default*2);
+}
+
+.charts-outer-container canvas {
+  position: relative;
+  top: -24px;
+  padding-top: 36px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.05);
+  height: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.chart-header-btn {
+  background-color: transparent;
+  line-height: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  position: relative;
+  z-index: 1000;
+  cursor: pointer;
 }
 

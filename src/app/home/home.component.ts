@@ -37,6 +37,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  removeChart(chartName: ChartName): void {
+    let chart = this.dataCharts.find(item => item.name === chartName);
+    chart.selected = false;
+  }
+
   updateDashboard(data: ChartData[]): void {
     this.dataCharts.map(item => {
       item.selected = this.selection.value.includes(item);

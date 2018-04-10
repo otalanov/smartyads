@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Output, EventEmitter} from "@angular/core";
 
 @Component({
   selector: 'chart-devices',
@@ -7,11 +7,14 @@ import {Component, OnInit} from "@angular/core";
 
 export class ChartDevicesComponent implements OnInit {
 
+  @Output() chartRemoved: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   doughnutChartLabels: string[] = ['Desktop', 'Tablet', 'Mobile'];
   doughnutChartData: number[] = [350, 450, 100];
   doughnutChartType: string = 'doughnut';
   doughnutChartOptions: any = {
-    responsive: false
+    responsive: true,
+    maintainAspectRatio: false
   };
 
   overallDevices: number = 0;
@@ -27,12 +30,8 @@ export class ChartDevicesComponent implements OnInit {
     this.overallDevices = this.doughnutChartData.reduce((a, b) => a + b, 0);
   }
 
-  // events
-  public chartClicked(e:any):void {
-    console.log(e);
-  }
-  public chartHovered(e:any):void {
-    console.log(e);
+  emitRemoveChart(): void {
+    this.chartRemoved.emit(true);
   }
 
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Output, EventEmitter} from "@angular/core";
 
 @Component({
   selector: 'chart-demographics',
@@ -7,9 +7,12 @@ import {Component, OnInit} from "@angular/core";
 
 export class ChartDemographicsComponent implements OnInit {
 
+  @Output() chartRemoved: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   barChartOptions: any = {
     scaleShowVerticalLines: false,
-    responsive: false,
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       yAxes: [{
         ticks: {
@@ -40,11 +43,7 @@ export class ChartDemographicsComponent implements OnInit {
 
   }
 
-  public chartClicked(e:any): void {
-    console.log(e);
-  }
-
-  public chartHovered(e:any): void {
-    console.log(e);
+  emitRemoveChart(): void {
+    this.chartRemoved.emit(true);
   }
 }
